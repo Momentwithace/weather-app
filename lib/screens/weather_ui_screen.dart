@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'dart:math' as math;
+
+import 'package:weather_app/controllers/change_temp_controller.dart';
 
 class WeatherUIScreen extends StatefulWidget {
   const WeatherUIScreen({super.key});
@@ -11,6 +14,8 @@ class WeatherUIScreen extends StatefulWidget {
 }
 
 class _WeatherUIScreenState extends State<WeatherUIScreen> {
+  final ctr = Get.put(ChangeTempController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,10 +59,12 @@ class _WeatherUIScreenState extends State<WeatherUIScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '23 \u00B0',
-                        style: TextStyle(color: Colors.white, fontSize: 120),
-                      ),
+                      GetBuilder<ChangeTempController>(builder: (ctr) {
+                        return Text(
+                          '${ctr.temp} \u00B0',
+                          style: TextStyle(color: Colors.white, fontSize: 120),
+                        );
+                      }),
                       Transform.rotate(
                         angle: -math.pi / 2,
                         child: Text(
@@ -100,8 +107,23 @@ class _WeatherUIScreenState extends State<WeatherUIScreen> {
                           fontSize: 20,
                         ),
                       ),
-                      SizedBox(
-                        height: 45,
+                      // SizedBox(
+                      //   height: 45,
+                      // ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                ctr.increseTemprature();
+                              },
+                              child: Text('Change Data')),
+                          ElevatedButton(
+                              onPressed: () {
+                                ctr.navigateToHome();
+                              },
+                              child: Text('go to home'))
+                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
