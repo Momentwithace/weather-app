@@ -121,7 +121,7 @@ class _WeatherUIScreenState extends State<WeatherUIScreen> {
                           HourlyInfo(
                             icon: Icons.cloudy_snowing,
                             time: 16,
-                            temperature: '12',
+                            temperature: '17',
                             color: Colors.amber[300],
                           ),
                           HourlyInfo(
