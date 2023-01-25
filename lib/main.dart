@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/screens/night_weather_ui_screen.dart';
-import 'package:weather_app/screens/weather_ui_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +17,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
+      // ignore: prefer_const_constructors
       home: NightWeatherUI(),
     );
   }
