@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/screens/night_weather_ui_screen.dart';
 import 'package:weather_app/screens/weather_ui_screen.dart';
 
 void main() {
@@ -12,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'The Weather App',
       theme: ThemeData(
        
         primarySwatch: Colors.blue,
       ),
-      home: WeatherUIScreen(),
+      home: NightWeatherUI(),
     );
   }
 }
